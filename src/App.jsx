@@ -1,4 +1,19 @@
 import { useEffect, useRef, useState } from "react";
+import chapter1Cover from "./assets/chapter1-cover.jpg";
+import chapter2Cover from "./assets/chapter2-cover.jpg";
+import chapter3Cover from "./assets/chapter3-cover.jpg";
+import chapter4Cover from "./assets/chapter4-cover.jpg";
+import chapter5Cover from "./assets/chapter5-cover.jpg";
+import finaleCover from "./assets/finale-cover.gif";
+
+const mediaModules = import.meta.glob("./assets/media/*", {
+  eager: true,
+  import: "default",
+});
+
+function media(fileName) {
+  return mediaModules[`./assets/media/${fileName}`];
+}
 
 const chapters = [
   {
@@ -44,7 +59,7 @@ const chapters = [
     body:
       "This was the turning point. The moment where looking became speaking, and where a quiet crush finally became brave enough to be real.",
     summary: "The story changes when your feelings are finally spoken.",
-    image: "/assets/proposetoher.jpg",
+    image: media("proposetoher.jpg"),
     imageAlt: "Myanmar-language chat screenshot from the proposal moment",
     caption: "The message that changed the story from hidden feelings into something real.",
   },
@@ -58,7 +73,7 @@ const chapters = [
     body:
       "Her answer was soft and simple, but it carried so much warmth. It was enough to make everything after it possible.",
     summary: "A kind reply became the first real ground your relationship stood on.",
-    image: "/assets/happytospendwithya.jpg",
+    image: media("happytospendwithya.jpg"),
     imageAlt: "Chat screenshot saying it is okay and she is happy to spend time together",
     caption: "Her reply: 'It's ok. I'm happy to spent my time with u.'",
   },
@@ -80,18 +95,18 @@ const chapters = [
         caption: "Our first online couple profile photos, side by side.",
         images: [
           {
-            src: "/assets/firstcouplepic-me.jpg",
+            src: media("firstcouplepic-me.jpg"),
             alt: "First online couple profile photo of him",
           },
           {
-            src: "/assets/firstcouplepic-she.jpg",
+            src: media("firstcouplepic-she.jpg"),
             alt: "First online couple profile photo of her",
           },
         ],
       },
       {
         type: "image",
-        src: "/assets/firstphotoofours.jpg",
+        src: media("firstphotoofours.jpg"),
         alt: "Early couple photo after you started dating",
         caption: "Our first photo together after we officially became a couple.",
       },
@@ -155,11 +170,11 @@ const chapters = [
     summary: "Her forgiveness is what allowed the LDR chapter to begin instead of ending everything.",
     gallery: [
       {
-        src: "/assets/welaugh-01.jpg",
+        src: media("welaugh-01.jpg"),
         alt: "Online video call memory one",
       },
       {
-        src: "/assets/welaugh-02.jpg",
+        src: media("welaugh-02.jpg"),
         alt: "Online video call memory two",
       },
     ],
@@ -175,7 +190,7 @@ const chapters = [
     body:
       "After a year of distance, this meeting carried more weight. It was proof that the relationship had survived the hardest turn in the story so far.",
     summary: "Chapter 2 ends with reunion after a year of distance.",
-    image: "/assets/wemeetagainin2017.jpg",
+    image: media("wemeetagainin2017.jpg"),
     imageAlt: "Photo of the couple meeting again in 2017",
     caption: "Us together again in 2017, after one long year apart.",
   },
@@ -226,23 +241,23 @@ const chapters = [
     special: "japan-malaysia",
     gallery: [
       {
-        src: "/assets/malaysia-meet-firstime.jpg",
+        src: media("malaysia-meet-firstime.jpg"),
         alt: "First Malaysia reunion photo",
       },
       {
-        src: "/assets/malaysia-meet-2.jpg",
+        src: media("malaysia-meet-2.jpg"),
         alt: "Malaysia reunion photo two",
       },
       {
-        src: "/assets/malaysia-meet-3.jpg",
+        src: media("malaysia-meet-3.jpg"),
         alt: "Malaysia reunion photo three",
       },
       {
-        src: "/assets/malaysia-meet-4.jpg",
+        src: media("malaysia-meet-4.jpg"),
         alt: "Malaysia reunion photo four",
       },
       {
-        src: "/assets/malaysia-meet-5.jpg",
+        src: media("malaysia-meet-5.jpg"),
         alt: "Malaysia reunion photo five",
       },
     ],
@@ -258,7 +273,7 @@ const chapters = [
     body:
       "This return trip feels different. Not just another reunion, but a stronger one. You were more prepared, more stable, and able to come back to her with more confidence.",
     summary: "Chapter 4 starts with a more solid return: same love, stronger footing.",
-    image: "/assets/malaysia-photo-2024-01.jpg",
+    image: media("malaysia-photo-2024-01.jpg"),
     imageAlt: "Airport photo from the 2024 Malaysia trip",
     caption: "I am here again.",
   },
@@ -274,31 +289,31 @@ const chapters = [
     summary: "Chapter 4 turns reunion into a fuller season of memories, not just one meeting.",
     gallery: [
       {
-        src: "/assets/malaysia-photo-2024-02.jpg",
+        src: media("malaysia-photo-2024-02.jpg"),
         alt: "Malaysia 2024 trip photo two",
       },
       {
-        src: "/assets/malaysia-photo-2024-03.jpg",
+        src: media("malaysia-photo-2024-03.jpg"),
         alt: "Malaysia 2024 trip photo three",
       },
       {
-        src: "/assets/malaysia-photo-2024-04.jpg",
+        src: media("malaysia-photo-2024-04.jpg"),
         alt: "Malaysia 2024 trip photo four",
       },
       {
-        src: "/assets/malaysia-photo-2024-05.jpg",
+        src: media("malaysia-photo-2024-05.jpg"),
         alt: "Malaysia 2024 trip photo five",
       },
       {
-        src: "/assets/malaysia-photo-2024-06.jpg",
+        src: media("malaysia-photo-2024-06.jpg"),
         alt: "Malaysia 2024 trip photo six",
       },
       {
-        src: "/assets/malaysia-photo-2024-07.jpg",
+        src: media("malaysia-photo-2024-07.jpg"),
         alt: "Malaysia 2024 trip photo seven",
       },
       {
-        src: "/assets/malaysia-photo-2024-08.jpg",
+        src: media("malaysia-photo-2024-08.jpg"),
         alt: "Malaysia 2024 trip photo eight",
       },
     ],
@@ -314,7 +329,7 @@ const chapters = [
     body:
       "By then, the journey already carried years of history. Every trip meant more because it held the weight of everything we had survived to reach that moment.",
     summary: "Chapter 5 begins with another return, not out of chance, but because love kept choosing the road back.",
-    image: "/assets/malaysia-photo-2025-01.jpg",
+    image: media("malaysia-photo-2025-01.jpg"),
     imageAlt: "Malaysia 2025 trip opening photo",
     caption: "Back in Malaysia again, carrying another year of love with me.",
   },
@@ -330,23 +345,23 @@ const chapters = [
     summary: "This chapter shows that your love did not stand still. It kept growing in depth and meaning.",
     gallery: [
       {
-        src: "/assets/malaysia-photo-2025-02.jpg",
+        src: media("malaysia-photo-2025-02.jpg"),
         alt: "Malaysia 2025 photo two",
       },
       {
-        src: "/assets/malaysia-photo-2025-03.jpg",
+        src: media("malaysia-photo-2025-03.jpg"),
         alt: "Malaysia 2025 photo three",
       },
       {
-        src: "/assets/malaysia-photo-2025-04.jpg",
+        src: media("malaysia-photo-2025-04.jpg"),
         alt: "Malaysia 2025 photo four",
       },
       {
-        src: "/assets/malaysia-photo-2025-05.jpg",
+        src: media("malaysia-photo-2025-05.jpg"),
         alt: "Malaysia 2025 photo five",
       },
       {
-        src: "/assets/malaysia-photo-2025-06.jpg",
+        src: media("malaysia-photo-2025-06.jpg"),
         alt: "Malaysia 2025 photo six",
       },
     ],
@@ -354,7 +369,7 @@ const chapters = [
   },
   {
     id: "21",
-    chapter: "Finale",
+    chapter: "10th Anniversary",
     kicker: "2026/03/16",
     year: "10th Anniversary",
     roadmapLabel: "Our 10th anniversary",
@@ -363,7 +378,7 @@ const chapters = [
       "From the first time I noticed you in school, to the long-distance years, the pain, the waiting, the reunions, and every journey after, loving you has been one of the deepest and most beautiful parts of my life.",
     summary: "The whole story lands here: ten years of love, gratitude, apology, and promise.",
     special: "finale",
-    queenGif: "/assets/anni-photo-her-gif.gif",
+    queenGif: media("anni-photo-her-gif.gif"),
     letter: [
       "I love you so much. I loved you when I was still too shy to say anything, I loved you when distance made everything harder, and I love you now with even more certainty than before.",
       "Thank you for staying, for forgiving me, for trusting me again, for waiting through the difficult years, and for giving this story so much warmth. I know I made mistakes. I am sorry for the times I hurt you, especially when fear made me hide the truth from you.",
@@ -378,7 +393,6 @@ const chapterOverview = [
     id: "Chapter 1",
     years: "2015 - 2016",
     target: "chapter-1",
-    image: "/assets/firstphotoofours.jpg",
     title: "How we became a couple",
     feeling: "The shy beginning, the promise, and the day we finally became us.",
   },
@@ -386,7 +400,6 @@ const chapterOverview = [
     id: "Chapter 2",
     years: "2016 - 2023",
     target: "chapter-2",
-    image: "/assets/wemeetagainin2017.jpg",
     title: "The move to Japan and our LDR beginning",
     feeling: "Distance hurt us, but love stayed and kept choosing to continue.",
   },
@@ -394,7 +407,6 @@ const chapterOverview = [
     id: "Chapter 3",
     years: "2023 - keep going",
     target: "chapter-3",
-    image: "/assets/malaysia-meet-firstime.jpg",
     title: "The coup, Malaysia, and meeting again",
     feeling: "Work, waiting, and finally earning the chance to meet again.",
   },
@@ -402,7 +414,6 @@ const chapterOverview = [
     id: "Chapter 4",
     years: "2024",
     target: "chapter-4",
-    image: "/assets/malaysia-photo-2024-01.jpg",
     title: "Going again with a better budget",
     feeling: "A stronger return, with more stability and more memories together.",
   },
@@ -410,19 +421,26 @@ const chapterOverview = [
     id: "Chapter 5",
     years: "2025 - 2026",
     target: "chapter-5",
-    image: "/assets/malaysia-photo-2025-01.jpg",
     title: "More journeys and our 10th anniversary",
     feeling: "A wonderful journey that keeps growing, all the way to our 10th anniversary.",
   },
   {
-    id: "Finale",
+    id: "10th Anniversary",
     years: "2026/03/16",
     target: "chapter-finale",
-    image: "/assets/anni-photo-her-gif.gif",
     title: "Ten years of us",
     feeling: "My queen, thank you, I love you, and I want to love you more from now on too.",
   },
 ];
+
+const chapterCoverById = {
+  "Chapter 1": chapter1Cover,
+  "Chapter 2": chapter2Cover,
+  "Chapter 3": chapter3Cover,
+  "Chapter 4": chapter4Cover,
+  "Chapter 5": chapter5Cover,
+  "10th Anniversary": finaleCover,
+};
 
 function StoryMedia({ chapter }) {
   if (chapter.special === "finale") {
@@ -642,7 +660,7 @@ function ChapterSelector({ activeChapter }) {
 
         return (
           <a key={item.id} href={`#${item.target}`} className={`chapter-tile ${isActive ? "is-active" : ""}`}>
-            <img src={item.image} alt={item.title} className="chapter-tile-image" />
+            <img src={chapterCoverById[item.id]} alt={item.title} className="chapter-tile-image" />
             <div className="chapter-tile-body">
               <p className="chapter-tile-years">{item.years}</p>
               <h3>{item.id}</h3>
@@ -777,10 +795,12 @@ function App() {
               chapter.special ? `is-${chapter.special}` : ""
             }`}
           >
-            <div className="story-topline">
-              <span className="story-index">{chapter.id}</span>
-              <span className="story-chapter">{chapter.chapter}</span>
-            </div>
+            {chapter.special !== "finale" ? (
+              <div className="story-topline">
+                <span className="story-index">{chapter.id}</span>
+                <span className="story-chapter">{chapter.chapter}</span>
+              </div>
+            ) : null}
             <p className="story-kicker">{chapter.kicker}</p>
             <h2>{chapter.title}</h2>
             <p>{chapter.body}</p>
