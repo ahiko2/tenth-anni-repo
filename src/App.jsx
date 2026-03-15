@@ -726,19 +726,19 @@ function App() {
         <div className="visual-card hero-card">
           <p className="eyebrow">Tap A Chapter</p>
           <h1>
-            A photo for each chapter,
-            <span> then tap to enter the memory.</span>
+            Our love story,
+            <span> one memory at a time.</span>
           </h1>
           <p className="lede">
-            Each top photo now works like a chapter cover. Tap one to jump into
-            its dates, memories, photos, and how you felt in that part of the
-            journey.
+            Every chapter holds a piece of us: the dates, the memories, the
+            photos, and the feelings that stayed in my heart from the beginning
+            until now.
           </p>
 
           <div className="badge-row">
-            <span>Tap to jump</span>
-            <span>Dates + photos</span>
-            <span>Feelings included</span>
+            <span>Our memories</span>
+            <span>Our feelings</span>
+            <span>Our journey</span>
           </div>
         </div>
 
