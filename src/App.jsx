@@ -377,38 +377,50 @@ const chapterOverview = [
   {
     id: "Chapter 1",
     years: "2015 - 2016",
+    target: "chapter-1",
+    image: "/assets/firstphotoofours.jpg",
     title: "How we became a couple",
-    range: "01 - 06",
+    feeling: "The shy beginning, the promise, and the day we finally became us.",
   },
   {
     id: "Chapter 2",
     years: "2016 - 2023",
+    target: "chapter-2",
+    image: "/assets/wemeetagainin2017.jpg",
     title: "The move to Japan and our LDR beginning",
-    range: "07 - 12",
+    feeling: "Distance hurt us, but love stayed and kept choosing to continue.",
   },
   {
     id: "Chapter 3",
     years: "2023 - keep going",
+    target: "chapter-3",
+    image: "/assets/malaysia-meet-firstime.jpg",
     title: "The coup, Malaysia, and meeting again",
-    range: "13 - 16",
+    feeling: "Work, waiting, and finally earning the chance to meet again.",
   },
   {
     id: "Chapter 4",
     years: "2024",
+    target: "chapter-4",
+    image: "/assets/malaysia-photo-2024-01.jpg",
     title: "Going again with a better budget",
-    range: "17 - 18",
+    feeling: "A stronger return, with more stability and more memories together.",
   },
   {
     id: "Chapter 5",
     years: "2025 - 2026",
+    target: "chapter-5",
+    image: "/assets/malaysia-photo-2025-01.jpg",
     title: "More journeys and our 10th anniversary",
-    range: "19 - 21",
+    feeling: "A wonderful journey that keeps growing, all the way to our 10th anniversary.",
   },
   {
     id: "Finale",
     years: "2026/03/16",
+    target: "chapter-finale",
+    image: "/assets/anni-photo-her-gif.gif",
     title: "Ten years of us",
-    range: "21",
+    feeling: "My queen, thank you, I love you, and I want to love you more from now on too.",
   },
 ];
 
@@ -622,22 +634,22 @@ function StoryMedia({ chapter }) {
   return null;
 }
 
-function RoadmapOverview({ activeChapter }) {
+function ChapterSelector({ activeChapter }) {
   return (
-    <div className="roadmap-overview">
+    <div className="chapter-selector-grid">
       {chapterOverview.map((item) => {
         const isActive = item.id === activeChapter.chapter;
 
         return (
-          <section key={item.id} className={`overview-card ${isActive ? "is-active" : ""}`}>
-            <div className="overview-line">
-              <span className="overview-dot"></span>
-              <span className="overview-years">{item.years}</span>
+          <a key={item.id} href={`#${item.target}`} className={`chapter-tile ${isActive ? "is-active" : ""}`}>
+            <img src={item.image} alt={item.title} className="chapter-tile-image" />
+            <div className="chapter-tile-body">
+              <p className="chapter-tile-years">{item.years}</p>
+              <h3>{item.id}</h3>
+              <strong>{item.title}</strong>
+              <p className="chapter-tile-feeling">{item.feeling}</p>
             </div>
-            <p className="overview-chapter">{item.id}</p>
-            <h3>{item.title}</h3>
-            <p className="overview-range">Scenes {item.range}</p>
-          </section>
+          </a>
         );
       })}
     </div>
@@ -694,33 +706,34 @@ function App() {
 
       <aside className="visual-panel">
         <div className="visual-card hero-card">
-          <p className="eyebrow">The Relationship Roadmap</p>
+          <p className="eyebrow">Tap A Chapter</p>
           <h1>
-            The Map of Us,
-            <span> from school crush to long-distance love.</span>
+            A photo for each chapter,
+            <span> then tap to enter the memory.</span>
           </h1>
           <p className="lede">
-            The roadmap now covers three real chapters: becoming a couple,
-            surviving the move to Japan, and finally meeting again in Malaysia.
+            Each top photo now works like a chapter cover. Tap one to jump into
+            its dates, memories, photos, and how you felt in that part of the
+            journey.
           </p>
 
           <div className="badge-row">
-            <span>Mobile first</span>
-            <span>Cute handwritten feel</span>
-            <span>Real memories</span>
+            <span>Tap to jump</span>
+            <span>Dates + photos</span>
+            <span>Feelings included</span>
           </div>
         </div>
 
         <div className="visual-card map-card">
           <div className="poster-head">
             <div>
-              <p className="label">Currently reading</p>
-              <strong>{activeChapter.roadmapLabel}</strong>
+              <p className="label">Selected chapter</p>
+              <strong>{activeChapter.chapter}</strong>
             </div>
             <div className="year-pill">{activeChapter.kicker}</div>
           </div>
 
-          <RoadmapOverview activeChapter={activeChapter} />
+          <ChapterSelector activeChapter={activeChapter} />
 
           <div className="poster-footer">
             <div>
@@ -744,6 +757,21 @@ function App() {
             ref={(element) => {
               chapterRefs.current[index] = element;
             }}
+            id={
+              chapter.id === "01"
+                ? "chapter-1"
+                : chapter.id === "07"
+                  ? "chapter-2"
+                  : chapter.id === "13"
+                    ? "chapter-3"
+                    : chapter.id === "17"
+                      ? "chapter-4"
+                      : chapter.id === "19"
+                        ? "chapter-5"
+                        : chapter.id === "21"
+                          ? "chapter-finale"
+                          : undefined
+            }
             data-index={index}
             className={`story-card ${activeIndex === index ? "is-active" : ""} ${
               chapter.special ? `is-${chapter.special}` : ""

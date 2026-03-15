@@ -205,82 +205,67 @@ h1 span {
   font-weight: 700;
 }
 
-.roadmap-overview {
+.chapter-selector-grid {
   display: grid;
   gap: 14px;
   margin: 20px 0;
 }
 
-.overview-card {
-  position: relative;
-  padding: 18px 18px 18px 22px;
-  border-radius: 22px;
+.chapter-tile {
+  display: grid;
+  grid-template-columns: 108px 1fr;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 24px;
   border: 1px solid rgba(167, 138, 88, 0.14);
   background:
-    linear-gradient(180deg, rgba(255, 251, 245, 0.94), rgba(255, 246, 240, 0.92));
+    linear-gradient(180deg, rgba(255, 251, 245, 0.96), rgba(255, 246, 240, 0.92));
+  text-decoration: none;
+  color: inherit;
 }
 
-.overview-card::before {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  bottom: 18px;
-  width: 2px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255, 143, 179, 0.5), rgba(255, 217, 120, 0.2));
+.chapter-tile.is-active {
+  border-color: rgba(255, 143, 179, 0.28);
+  background: linear-gradient(180deg, rgba(255, 247, 246, 0.98), rgba(255, 240, 238, 0.95));
 }
 
-.overview-card.is-active {
-  border-color: rgba(255, 143, 179, 0.26);
-  background: linear-gradient(180deg, rgba(255, 247, 246, 0.98), rgba(255, 242, 238, 0.95));
+.chapter-tile-image {
+  width: 100%;
+  height: 108px;
+  border-radius: 18px;
+  object-fit: cover;
 }
 
-.overview-line {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: 14px;
+.chapter-tile-body {
+  min-width: 0;
 }
 
-.overview-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: #ff7fa4;
-  box-shadow: 0 0 0 5px rgba(255, 143, 179, 0.14);
-}
-
-.overview-years,
-.overview-range,
-.overview-chapter {
+.chapter-tile-years {
+  margin: 0;
   color: #9c6a72;
-}
-
-.overview-years,
-.overview-range {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.overview-chapter {
-  margin: 10px 0 6px 34px;
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.overview-card h3 {
-  margin: 0 0 6px 34px;
+.chapter-tile h3 {
+  margin: 8px 0 4px;
   font-family: "Caveat", cursive;
-  font-size: 2rem;
+  font-size: 1.9rem;
   line-height: 1;
   color: #30241d;
 }
 
-.overview-range {
+.chapter-tile strong {
   display: block;
-  margin-left: 34px;
+  color: #6f5357;
+  line-height: 1.45;
+}
+
+.chapter-tile-feeling {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .story-column {
@@ -959,8 +944,17 @@ h1 span {
     flex-direction: column;
   }
 
-  .overview-card h3 {
-    font-size: 1.7rem;
+  .chapter-tile {
+    grid-template-columns: 92px 1fr;
+    gap: 12px;
+  }
+
+  .chapter-tile-image {
+    height: 92px;
+  }
+
+  .chapter-tile h3 {
+    font-size: 1.6rem;
   }
 
   .story-card {
@@ -1003,6 +997,14 @@ h1 span {
 
   .memory-grid.pair-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .chapter-tile {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-tile-image {
+    height: 160px;
   }
 
   .reunion-travel-scene {
